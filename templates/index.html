@@ -6,6 +6,16 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>HELLO from index</h1>
+    {% for message in get_flashed_messages() %}
+        <p>{{ message }}</p>
+    {% endfor %}
+
+    {% if current_user.is_authenticated %}
+        <p>{{ current_user.name }} さんこんにちは</p>
+    {% else %}
+        <p>ログインしていません</p>
+    {% endif %}
+
+    <h1>Welcome to the TOKYO DISNEY RESORT!</h1>
 </body>
 </html>
